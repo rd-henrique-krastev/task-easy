@@ -1,0 +1,20 @@
+.wrapper {
+  margin-top: 10rem;
+  place-content: center;
+  display: grid;
+}
+
+.container-div {
+  text-align: center;
+  display: inline-grid;
+}
+
+.login-h1 {
+  text-align: center;
+}
+
+.form {
+  display: inline-grid;
+  background-color: cadetblue;
+  padding: 3rem;
+  border-radius: 10px;}

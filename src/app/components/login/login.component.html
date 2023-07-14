@@ -1,0 +1,27 @@
+
+<div class="wrapper">
+  <h1 class="login-h1">LOGIN</h1>
+  <div class="container-div">
+    <form class="form" [formGroup]="form"
+          (ngSubmit)="submit()">
+      <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
+        email is required
+      </mat-error>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>User Name</mat-label>
+        <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
+      </mat-form-field>
+
+      <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
+        password is required
+      </mat-error>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" autocomplete="false" matInput placeholder="Password *" formControlName="password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Submit</button>
+    </form>
+    <span *ngIf="showErrorMessage"> INCORRECT CREDENTIALS !!</span>
+  </div>
+
+</div>
