@@ -1,0 +1,16 @@
+mat-hint {
+  min-width: fit-content;
+}
+
+form {
+  display: grid;
+}
+
+.login-container {
+  max-width: 370px;
+  margin-top: 30vh;
+}
+
+.megadiv {
+  text-align: -webkit-center;
+}
