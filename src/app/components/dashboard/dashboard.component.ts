@@ -10,6 +10,10 @@ import {
 } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { Card } from 'src/app/card';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +21,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
+  cards: Card[] = [];
+  longText = `test`;
   username:string|undefined
   todo: string[] = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
   inprogress: string[] = ['Get up', 'Brush teeth', 'Take a shower']

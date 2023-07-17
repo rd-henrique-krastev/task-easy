@@ -16,13 +16,14 @@ import { MatCardModule } from "@angular/material/card";
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
 import { NgFor } from '@angular/common';
+import { MatButtonToggleModule   } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,8 @@ import { NgFor } from '@angular/common';
     CdkDropList,
     NgFor,
     CdkDrag,
-    CdkAccordionModule
+    CdkAccordionModule,
+    MatButtonToggleModule
 
   ],
   providers: [AuthenticationService],
