@@ -1,0 +1,114 @@
+<nav-component></nav-component>
+
+<div class="jira-board-container">
+<div class="input-container">
+  <h2>To do ({{todo.length}})</h2>
+
+  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[inprogressList,doneList]"
+    class="input-list" (cdkDropListDropped)="drop($event)">
+    <div class="input-box" *ngFor="let item of todo" cdkDrag>
+      <cdk-accordion class="example-accordion">
+        <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0"
+          [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + item">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+            {{ item }}
+          </div>
+          <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + item" [attr.aria-labelledby]="'accordion-header-' + item">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-subtitle>To do</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Content</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                  <mat-button-toggle >To do</mat-button-toggle>
+                  <mat-button-toggle value="italic">In Progress</mat-button-toggle>
+                  <mat-button-toggle value="underline">Done</mat-button-toggle>
+                </mat-button-toggle-group>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="input-container">
+  <h2>In progress ({{inprogress.length}})</h2>
+
+  <div cdkDropList #inprogressList="cdkDropList" [cdkDropListData]="inprogress" [cdkDropListConnectedTo]="[doneList,todoList]"
+    class="input-list" (cdkDropListDropped)="drop($event)">
+    <div class="input-box" *ngFor="let item of inprogress" cdkDrag>
+      <cdk-accordion class="example-accordion">
+        <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0"
+          [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + item">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+            {{ item }}
+          </div>
+          <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + item" [attr.aria-labelledby]="'accordion-header-' + item">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-subtitle>In progress</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Content</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                  <mat-button-toggle >To do</mat-button-toggle>
+                  <mat-button-toggle value="italic">In Progress</mat-button-toggle>
+                  <mat-button-toggle value="underline">Done</mat-button-toggle>
+                </mat-button-toggle-group>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+    </div>
+  </div>
+</div>
+
+<div class="input-container">
+  <h2>Done ({{done.length}})</h2>
+
+  <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList,inprogressList]" class="input-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="input-box" *ngFor="let item of done" cdkDrag>
+      <cdk-accordion class="example-accordion">
+        <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0"
+          [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + item">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()"><s>
+              {{ item }}</s>
+          </div>
+          <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + item" [attr.aria-labelledby]="'accordion-header-' + item">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-subtitle>Done</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Content</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                  <mat-button-toggle >To do</mat-button-toggle>
+                  <mat-button-toggle value="italic">In Progress</mat-button-toggle>
+                  <mat-button-toggle value="underline">Done</mat-button-toggle>
+                </mat-button-toggle-group>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+    </div>
+  </div>
+</div>
+</div>
