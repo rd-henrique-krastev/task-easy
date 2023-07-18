@@ -5,15 +5,15 @@
     <form class="form" [formGroup]="form"
           (ngSubmit)="submit()">
       <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
-        email is required
+        Username is required!
       </mat-error>
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>User Name</mat-label>
+        <mat-label>Username</mat-label>
         <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
       </mat-form-field>
 
       <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
-        password is required
+        Password is required!
       </mat-error>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
@@ -25,6 +25,6 @@
   </div>
 
 
-  <p>Don't have an account? <span (click)="clickRegister()">Create one here</span></p>
+  <p>Don't have an account? <button (click)="clickRegister()">Register</button></p>
 
 </div>

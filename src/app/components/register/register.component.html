@@ -10,7 +10,7 @@
           <mat-icon matPrefix>email</mat-icon>
           <input autofocus type="email" matInput placeholder="Email *" formControlName="email">
           <mat-error *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['required']">
-            email is required
+            Email is required!
           </mat-error>
         </mat-form-field>
 
@@ -19,7 +19,7 @@
           <mat-icon matPrefix>person_outline</mat-icon>
           <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
           <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
-            email is required
+            Username is required!
           </mat-error>
         </mat-form-field>
 
@@ -29,7 +29,7 @@
           <input type="password" autocomplete="false" matInput placeholder="Password *" formControlName="password">
           <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
           <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
-            email is required
+            Password is required!
           </mat-error>
         </mat-form-field>
 
