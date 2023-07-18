@@ -1,9 +1,13 @@
 
 
 
-:host{
+.jira-board-container{
   display: flex;
     justify-content: center;
+}
+
+.cdk-me {
+  margin-bottom: 50vh;
 }
 
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
+
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -10,8 +9,6 @@ import {
 } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { Card } from 'src/app/card';
 
 

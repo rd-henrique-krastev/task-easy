@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'jira-board', component: DashboardComponent, canActivate: [AuthGuard]
   },
   {
-    path: '', redirectTo: 'jira-board', pathMatch: 'full'
+    path: '**', redirectTo: 'login'
   }, {
     path: 'register', component: RegisterComponent
   }, {

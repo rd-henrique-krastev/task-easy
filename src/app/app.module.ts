@@ -17,6 +17,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
 import { NgFor } from '@angular/common';
 import { MatButtonToggleModule   } from '@angular/material/button-toggle';
+import {NavComponent} from "./components/nav/nav.component";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatButtonToggleModule   } from '@angular/material/button-toggle';
     NgFor,
     CdkDrag,
     CdkAccordionModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    NavComponent
 
   ],
   providers: [AuthenticationService],

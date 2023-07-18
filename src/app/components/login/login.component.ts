@@ -20,7 +20,14 @@ export class LoginComponent {
 
   constructor(private authService: AuthenticationService,
               private router: Router,
-              private fb: NonNullableFormBuilder) {}
+              private fb: NonNullableFormBuilder) {
+
+    authService.getLoggedInSubject().subscribe(u => {
+      if (u) {
+        router.navigate(['jira-dashboard'])
+      }
+    })
+  }
 
   submit(){
 
@@ -37,4 +44,9 @@ export class LoginComponent {
        }
      })
   }
+
+  clickRegister(): void {
+    this.router.navigate(['register'])
+  }
+
 }

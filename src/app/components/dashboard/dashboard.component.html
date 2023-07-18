@@ -1,3 +1,6 @@
+<nav-component></nav-component>
+
+<div class="jira-board-container">
 <div class="input-container">
   <h2>To do ({{todo.length}})</h2>
 
@@ -75,7 +78,7 @@
 
 <div class="input-container">
   <h2>Done ({{done.length}})</h2>
-  
+
   <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList,inprogressList]" class="input-list"
     (cdkDropListDropped)="drop($event)">
     <div class="input-box" *ngFor="let item of done" cdkDrag>
@@ -107,4 +110,5 @@
       </cdk-accordion>
     </div>
   </div>
+</div>
 </div>
