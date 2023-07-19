@@ -1,14 +1,14 @@
 .example-menu {
   display: inline-flex;
   flex-direction: column;
-  min-width: 180px;
-  max-width: 280px;
-  background-color: rgba(255, 255, 255);
+  min-width: 100px;
+  max-width: 200px;
+  background-color: rgba(84, 84, 221, 0.5);
   padding: 6px 0;
 }
 
 .example-standalone-trigger {
-  margin-bottom: 200px;
+  margin-bottom: 20px;
   background-color: cornflowerblue !important;
   color: black;
   font-size: large;
