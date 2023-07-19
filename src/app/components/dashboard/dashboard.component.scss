@@ -33,8 +33,9 @@
               flex-direction: column;
               flex-grow: 1;
               flex-basis: 0; // to force the columns to all be the same size, regardless of content
-
+  
               min-width: 300px;
+              min-height: 500px;
               margin: 50px;
               padding: 25px;
 

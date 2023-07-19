@@ -49,7 +49,25 @@
             <div class="tasks-container" cdkDropList #inprogressList="cdkDropList" [cdkDropListData]="inprogress.tasks" [cdkDropListConnectedTo]="[todoList,doneList]"
                (cdkDropListDropped)="drop($event)">
               <div class="task" *ngFor="let item of inprogress.tasks" cdkDrag>
-               <p>{{item}}</p>
+                <cdk-accordion class="example-accordion">
+                  <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0"
+                    [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + item">
+                    <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                      {{ item.title }}
+                    </div>
+                    <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+                      [attr.id]="'accordion-body-' + item" [attr.aria-labelledby]="'accordion-header-' + item">
+                      <mat-card class="example-card">
+                        <mat-card-header>
+                          <mat-card-subtitle>{{item.assignee}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                          {{item.description}}
+                        </mat-card-content>
+                      </mat-card>
+                    </div>
+                  </cdk-accordion-item>
+                </cdk-accordion>
               </div>
             </div>
           </div>
@@ -61,8 +79,25 @@
               <div class="tasks-container" cdkDropList #doneList="cdkDropList" [cdkDropListData]="done.tasks" [cdkDropListConnectedTo]="[todoList,inprogressList]"
                  (cdkDropListDropped)="drop($event)">
                 <div class="task" *ngFor="let item of done.tasks" cdkDrag>
-
-                 <p>{{item}}</p>
+                  <cdk-accordion class="example-accordion">
+                    <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0"
+                      [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + item">
+                      <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                        {{ item.title }}
+                      </div>
+                      <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+                        [attr.id]="'accordion-body-' + item" [attr.aria-labelledby]="'accordion-header-' + item">
+                        <mat-card class="example-card">
+                          <mat-card-header>
+                            <mat-card-subtitle>{{item.assignee}}</mat-card-subtitle>
+                          </mat-card-header>
+                          <mat-card-content>
+                            {{item.description}}
+                          </mat-card-content>
+                        </mat-card>
+                      </div>
+                    </cdk-accordion-item>
+                  </cdk-accordion>
                 </div>
               </div>
             </div>   
