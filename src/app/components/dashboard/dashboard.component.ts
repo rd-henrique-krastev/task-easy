@@ -64,7 +64,8 @@ export class DashboardComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.todo.tasks.push(result.title + result.assignee + result.description)
+
+        this.todo.tasks.push(new Task(result.title,result.assignee,result.description))
         //todo -> make each card to have fields [assignee, description and title, not only a string]
       }
     });
