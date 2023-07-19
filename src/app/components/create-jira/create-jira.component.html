@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Create New Task</h1>
+<div mat-dialog-content style="{display: grid}">
+  <p>Create new Task</p>
+
+  <div class="input-container">
+
+    <mat-form-field>
+      <mat-label>Task Title</mat-label>
+      <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Task assignee</mat-label>
+      <input matInput [(ngModel)]="data.assignee">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Task description</mat-label>
+      <input matInput [(ngModel)]="data.description">
+    </mat-form-field>
+  </div>
+
+</div>
+<div style="display: flex; justify-content: space-between">
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Exit</button>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>
+</div>
+

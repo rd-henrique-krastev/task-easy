@@ -15,9 +15,13 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
-import { NgFor } from '@angular/common';
+import {NgFor, NgIf} from '@angular/common';
 import { MatButtonToggleModule   } from '@angular/material/button-toggle';
 import {NavComponent} from "./components/nav/nav.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import { CreateJiraComponent } from './components/create-jira/create-jira.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import {NavComponent} from "./components/nav/nav.component";
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    CreateJiraComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,13 @@ import {NavComponent} from "./components/nav/nav.component";
     CdkDrag,
     CdkAccordionModule,
     MatButtonToggleModule,
-    NavComponent
+    NavComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    NgIf,
+    MatDialogModule,
 
   ],
   providers: [AuthenticationService],
