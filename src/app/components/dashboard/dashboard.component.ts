@@ -9,24 +9,30 @@ import {
 } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Card } from 'src/app/card';
 import {MatDialog} from "@angular/material/dialog";
 import {CreateJiraComponent} from "../create-jira/create-jira.component";
+import { Board } from 'src/app/models/board.model';
+import { Column } from 'src/app/models/column.model';
+import { Task } from 'src/app/models/task.model';
 
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  cards: Card[] = [];
-  longText = `test`;
+ todo:Column =new Column('todo',[new Task('NewTask','Pesho','Hello Test')]);
+ inprogress:Column= new Column('in progress',[]);
+ done:Column= new Column('done',[]);
+
+  board: Board = new Board('Моряци',
+  [this.todo,
+   this.inprogress,
+   this.done]);
+
   username:string|undefined
-  todo: string[] = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-  inprogress: string[] = ['Get up', 'Brush teeth', 'Take a shower']
-  done: string[] = ['Check e-mail', 'Walk dog'];
-  expandedIndex = 0;
+  
 
 
   title: string = '';
@@ -58,13 +64,14 @@ export class DashboardComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.todo.push(result.title + result.assignee + result.description)
+
+        this.todo.tasks.push(new Task(result.title,result.assignee,result.description))
         //todo -> make each card to have fields [assignee, description and title, not only a string]
       }
     });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
