@@ -22,16 +22,17 @@ import { Task } from 'src/app/models/task.model';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
- todo:Column =new Column('todo',[]);
- inprogress:Column= new Column('in progress',[]);
- done:Column= new Column('done',[]);
 
-
+todo:Column =JSON.parse(localStorage.getItem('kanban_board')||'{}').columns[0];
+ inprogress:Column=JSON.parse(localStorage.getItem('kanban_board')||'{}').columns[1];
+ done:Column= JSON.parse(localStorage.getItem('kanban_board')||'{}').columns[2];
   username:string|undefined
 
   private registeredUsers: { [username: string]: string } = {};
 
-board!:Board;
+board:Board = JSON.parse(localStorage.getItem('kanban_board')|| '{}');
+ 
+
   title: string = '';
   description: string = '';
   assignee: string= '';
@@ -55,7 +56,10 @@ board!:Board;
 
     const storedBoard = localStorage.getItem('kanban_board');
     if (storedBoard) {
-      this.board = JSON.parse(storedBoard);
+      let metadata = JSON.parse(localStorage.getItem('kanban_board')|| '{}')
+      
+      
+      console.log(this.board)
     } else {
       this.board = new Board('Моряци', [this.todo, this.inprogress, this.done]);
     }
@@ -75,7 +79,6 @@ board!:Board;
         this.todo.tasks.push(new Task(result.title,result.assignee,result.description))
         this.board = new Board(this.board.name,[this.todo,this.inprogress,this.done])
         this.saveBoardState();
-    
       }
     });
   }
@@ -91,7 +94,7 @@ board!:Board;
         event.currentIndex,
       );
     }
-  
+    this.board = new Board(this.board.name,[this.todo,this.inprogress,this.done])
     this.saveBoardState();
   }
   private saveBoardState():void {
