@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import {
   CdkDragDrop,
@@ -21,20 +21,17 @@ import { Task } from 'src/app/models/task.model';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
- todo:Column =new Column('todo',[new Task('NewTask','Pesho','Hello Test')]);
+export class DashboardComponent implements OnInit {
+ todo:Column =new Column('todo',[]);
  inprogress:Column= new Column('in progress',[]);
  done:Column= new Column('done',[]);
 
-  board: Board = new Board('Моряци',
-  [this.todo,
-   this.inprogress,
-   this.done]);
 
   username:string|undefined
-  
 
+  private registeredUsers: { [username: string]: string } = {};
 
+board!:Board;
   title: string = '';
   description: string = '';
   assignee: string= '';
@@ -47,12 +44,22 @@ export class DashboardComponent {
   ) { }
 
   ngOnInit(): void {
+ 
+
     this.activatedRoute.params.subscribe(p => {
       const username: string = p['username'];
 
       if (username)
         this.username = username;
     });
+
+    const storedBoard = localStorage.getItem('kanban_board');
+    if (storedBoard) {
+      this.board = JSON.parse(storedBoard);
+    } else {
+      this.board = new Board('Моряци', [this.todo, this.inprogress, this.done]);
+    }
+
   }
 
 
@@ -66,7 +73,9 @@ export class DashboardComponent {
       if (result) {
 
         this.todo.tasks.push(new Task(result.title,result.assignee,result.description))
-        //todo -> make each card to have fields [assignee, description and title, not only a string]
+        this.board = new Board(this.board.name,[this.todo,this.inprogress,this.done])
+        this.saveBoardState();
+    
       }
     });
   }
@@ -82,5 +91,11 @@ export class DashboardComponent {
         event.currentIndex,
       );
     }
+  
+    this.saveBoardState();
+  }
+  private saveBoardState():void {
+  
+    localStorage.setItem('kanban_board', JSON.stringify(this.board));
   }
 }
