@@ -54,19 +54,7 @@ board:Board = JSON.parse(localStorage.getItem('kanban_board')|| '{}');
         this.username = username;
     });
 
-    const storedBoard = localStorage.getItem('kanban_board');
-    if (storedBoard) {
-      let metadata = JSON.parse(localStorage.getItem('kanban_board')|| '{}')
-      
-      
-      console.log(this.board)
-    } else {
-      this.board = new Board('Моряци', [this.todo, this.inprogress, this.done]);
-    }
-
   }
-
-
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateJiraComponent, {
