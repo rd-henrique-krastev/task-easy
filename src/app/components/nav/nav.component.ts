@@ -7,7 +7,7 @@ import {NgIf} from "@angular/common";
 /** @title Menu with Standalone Trigger. */
 @Component({
   selector: 'nav-component',
-  styleUrls: ['nav.component.css'],
+  styleUrls: ['nav.component.scss'],
   templateUrl: 'nav.component.html',
   standalone: true,
   imports: [CdkMenuTrigger, CdkMenu, CdkMenuItem, RouterLink, NgIf],

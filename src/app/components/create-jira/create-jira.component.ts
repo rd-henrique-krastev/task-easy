@@ -12,7 +12,7 @@ export interface DialogData {
 @Component({
   selector: 'app-create-jira',
   templateUrl: './create-jira.component.html',
-  styleUrls: ['./create-jira.component.css']
+  styleUrls: ['./create-jira.component.scss']
 })
 export class CreateJiraComponent {
 
