@@ -1,30 +1,40 @@
+<div class="megadiv">
+  <div class="wrapper">
 
-<div class="wrapper">
-  <h1 class="login-h1">LOGIN</h1>
-  <div class="container-div">
-    <form class="form" [formGroup]="form"
-          (ngSubmit)="submit()">
-      <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
-        Username is required!
-      </mat-error>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Username</mat-label>
-        <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
-      </mat-form-field>
+    <div class="container-div">
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <h1 class="login-h1">LOGIN</h1>
 
-      <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
-        Password is required!
-      </mat-error>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Password</mat-label>
-        <input type="password" autocomplete="false" matInput placeholder="Password *" formControlName="password">
-      </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Submit</button>
-    </form>
-    <span *ngIf="showErrorMessage"> INCORRECT CREDENTIALS !!</span>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
+          <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
+            Username is required!
+          </mat-error>
+        </mat-form-field>
+        <p></p>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input autocomplete="false" matInput [type]="hide ? 'password' : 'text'" placeholder="Password *"
+            formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
+            Password is required!
+          </mat-error>
+        </mat-form-field>
+        <p></p>
+        <button mat-raised-button color="accent" [disabled]="form.invalid" type="submit">Submit </button>
+      </form>
+      <p></p>
+      <span *ngIf="showErrorMessage"><mat-error>INCORRECT CREDENTIALS !!!</mat-error></span>
+      <p></p>
+    </div>
+
+
+    <div class="registration-rerouting">Don't have an account? <button (click)="clickRegister()">Register</button></div>
+
   </div>
-
-
-  <p>Don't have an account? <button (click)="clickRegister()">Register</button></p>
-
 </div>

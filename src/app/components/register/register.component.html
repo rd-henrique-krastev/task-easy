@@ -1,7 +1,7 @@
 <div class="megadiv">
-<div class="login-container">
-  <div class="login-content">
-    <mat-toolbar class="login-toolbar" color="primary">REGISTER</mat-toolbar>
+<div class="register-container">
+  <div class="register-content">
+    <h1 class="register-h1">REGISTER</h1>
     <mat-card>
 
       <form [formGroup]="form"
@@ -9,7 +9,7 @@
         <mat-form-field>
           <mat-icon matPrefix>email</mat-icon>
           <input autofocus type="email" matInput placeholder="Email *" formControlName="email">
-          <mat-error *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['required']">
+          <mat-error class="error" *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['required']">
             Email is required!
           </mat-error>
         </mat-form-field>
@@ -35,7 +35,7 @@
 
         <hr>
         <div class="socialMediaFlex">
-          <button style="width:50%" [disabled]="form.invalid" type="submit" mat-raised-button color="primary">Submit</button>
+          <button style="width:50%" [disabled]="form.invalid" type="submit" mat-raised-button color="accent">Submit</button>
         </div>
       </form>
     </mat-card>
