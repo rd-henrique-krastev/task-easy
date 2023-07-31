@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import {AuthenticationService} from "../../services/authentication.service";
-import {Router} from "@angular/router";
-import {FormGroup, NonNullableFormBuilder, Validators} from "@angular/forms";
+import { AuthenticationService } from "../../services/authentication.service";
+import { Router } from "@angular/router";
+import { FormGroup, NonNullableFormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username : string ="";
-  password : string ="";
+  hide = true;
+  username: string = "";
+  password: string = "";
   showErrorMessage: boolean = false;
 
   form: FormGroup = this.fb.group({
@@ -19,8 +20,8 @@ export class LoginComponent {
   })
 
   constructor(private authService: AuthenticationService,
-              private router: Router,
-              private fb: NonNullableFormBuilder) {
+    private router: Router,
+    private fb: NonNullableFormBuilder) {
 
     authService.getLoggedInSubject().subscribe(u => {
       if (u) {
@@ -29,20 +30,20 @@ export class LoginComponent {
     })
   }
 
-  submit(){
+  submit() {
 
     const username = this.form.get('username')?.value;
-    const password =  this.form.get('password')?.value;
+    const password = this.form.get('password')?.value;
 
     this.authService
-     .login(username, password)
-     .subscribe(loginWasSuccessful => {
-       if (loginWasSuccessful) {
-         this.router.navigate(['jira-board', { username: this.username}]);
-       } else {
-         this.showErrorMessage = true;
-       }
-     })
+      .login(username, password)
+      .subscribe(loginWasSuccessful => {
+        if (loginWasSuccessful) {
+          this.router.navigate(['jira-board', { username: this.username }]);
+        } else {
+          this.showErrorMessage = true;
+        }
+      })
   }
 
   clickRegister(): void {

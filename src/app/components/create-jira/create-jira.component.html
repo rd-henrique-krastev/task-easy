@@ -1,7 +1,5 @@
 <h1 mat-dialog-title>Create New Task</h1>
 <div mat-dialog-content style="{display: grid}">
-  <p>Create new Task</p>
-
   <div class="input-container">
 
     <mat-form-field>
@@ -14,7 +12,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Task description</mat-label>
-      <input matInput [(ngModel)]="data.description">
+      <textarea matInput [(ngModel)]="data.description"></textarea>
     </mat-form-field>
   </div>
 
@@ -25,7 +23,7 @@
   </div>
 
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button [disabled]="data.title.trim().length===0 || data.assignee.trim().length===0 " mat-button
+      [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
   </div>
 </div>
-
