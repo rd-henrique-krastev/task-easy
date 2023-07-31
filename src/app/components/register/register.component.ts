@@ -15,6 +15,8 @@ export class RegisterComponent {
     password: ['', [Validators.required, Validators.minLength(8)]],
     email: ['', [Validators.required, Validators.email]]
   })
+localStorage: any;
+registeredUsers: any;
 
   constructor(private authService: AuthenticationService,
               private router: Router,

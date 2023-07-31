@@ -30,13 +30,13 @@
           <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
           <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
             Password is required!
-          </mat-error>
+          </mat-error>        
         </mat-form-field>
 
         <hr>
         <div class="socialMediaFlex">
-          <button style="width:50%" [disabled]="form.invalid" type="submit" mat-raised-button color="accent">Submit</button>
-        </div>
+          <button style="width:50%" [disabled]="form.invalid" type="submit" mat-raised-button color="accent">Register</button>
+        </div> 
       </form>
     </mat-card>
   </div>
