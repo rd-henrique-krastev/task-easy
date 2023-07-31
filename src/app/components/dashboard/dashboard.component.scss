@@ -2,10 +2,6 @@
 .board {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-
-  // Override Automatic Minimum Size
-  // https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size
   min-width: 0;
   min-height: 0;
 
@@ -17,16 +13,18 @@
           font-size: 20px;
           font-weight: bold;
           color: white;
+          width: 100%;
       }
   }
 
   .board-wrapper {
       display: flex;
-      flex-grow: 1;
+      width: 100%;
 
       .board-columns {
           display: flex;
           flex-grow: 1;
+          
 
           .board-column {
               display: flex;
@@ -34,10 +32,10 @@
               flex-grow: 1;
               flex-basis: 0; // to force the columns to all be the same size, regardless of content
   
-              min-width: 300px;
+              min-width: 6rem;
               min-height: 500px;
-              margin: 50px;
-              padding: 25px;
+              margin: 3rem;
+              padding: 2rem;
 
               border-radius: 4px;
 

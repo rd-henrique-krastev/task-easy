@@ -26,8 +26,8 @@
 
         <mat-form-field>
           <mat-icon matPrefix>lock_outline</mat-icon>
-          <input type="password" autocomplete="false" matInput placeholder="Password *" formControlName="password">
-          <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+          <input type="password" #input autocomplete="false" matInput placeholder="Password *" formControlName="password" minlength="8">
+          <mat-hint >Choose a password of at least eight characters {{input.value.length}}/8</mat-hint>
           <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
             Password is required!
           </mat-error>        

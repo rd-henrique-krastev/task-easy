@@ -6,13 +6,17 @@
   max-width: 200px;
   background-color: rgb(100, 148, 237, 0.5);
   padding: 6px 0;
+    flex-direction: column;
+
 }
 
 .example-standalone-trigger {
-  margin-bottom: 20px;
+  margin-bottom: 5.5rem;
   background-color: rgb(100, 148, 237) !important;
   color: black;
   font-size: large;
+    flex-direction: column;
+  ;
 }
 
 .example-menu-item,

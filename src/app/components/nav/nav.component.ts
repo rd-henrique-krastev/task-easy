@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ɵɵqueryRefresh} from '@angular/core';
 import {CdkMenu, CdkMenuItem, CdkMenuTrigger} from '@angular/cdk/menu';
 import {Router, RouterLink} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
@@ -27,6 +27,10 @@ export class NavComponent {
     this.authService.logout()
     this.userIsLoggedIn = false
     this.router.navigate(['login'])
+  }
+  clearBoard():void{
+    localStorage.setItem('kanban_board', '{"name":"Моряци","columns":[{"name":"to do","tasks":[]},{"name":"in progress","tasks":[]},{"name":"done","tasks":[]}]}');
+    window.location.reload();
   }
 
 }

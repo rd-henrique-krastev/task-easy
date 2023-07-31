@@ -18,7 +18,7 @@ export class RegisterComponent {
 localStorage: any;
 registeredUsers: any;
 
-  constructor(private authService: AuthenticationService,
+  constructor(public authService: AuthenticationService,
               private router: Router,
               private fb: NonNullableFormBuilder) {
   }
@@ -36,6 +36,7 @@ registeredUsers: any;
           this.router.navigate(['login', {username: username}])
         } else {
           console.log('user already exists')
+
         }
 
 
