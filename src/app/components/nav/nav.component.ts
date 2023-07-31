@@ -1,8 +1,8 @@
-import {Component, ɵɵqueryRefresh} from '@angular/core';
-import {CdkMenu, CdkMenuItem, CdkMenuTrigger} from '@angular/cdk/menu';
-import {Router, RouterLink} from "@angular/router";
-import {AuthenticationService} from "../../services/authentication.service";
-import {NgIf} from "@angular/common";
+import { Component, ɵɵqueryRefresh } from '@angular/core';
+import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from '@angular/cdk/menu';
+import { Router, RouterLink } from "@angular/router";
+import { AuthenticationService } from "../../services/authentication.service";
+import { NgIf } from "@angular/common";
 
 /** @title Menu with Standalone Trigger. */
 @Component({
@@ -17,10 +17,10 @@ export class NavComponent {
   userIsLoggedIn: boolean = false;
 
   constructor(private authService: AuthenticationService,
-              private router: Router) {
+    private router: Router) {
 
     authService.getLoggedInSubject()
-      .subscribe(s => {this.userIsLoggedIn = s});
+      .subscribe(s => { this.userIsLoggedIn = s });
   }
 
   logout(): void {
@@ -28,7 +28,7 @@ export class NavComponent {
     this.userIsLoggedIn = false
     this.router.navigate(['login'])
   }
-  clearBoard():void{
+  clearBoard(): void {
     localStorage.setItem('kanban_board', '{"name":"Моряци","columns":[{"name":"to do","tasks":[]},{"name":"in progress","tasks":[]},{"name":"done","tasks":[]}]}');
     window.location.reload();
   }

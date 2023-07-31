@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
   private isFirstTimeKey = 'isFirstTime';
 
-  constructor() {   }
+  constructor() { }
   isFirstTime(): boolean {
     return localStorage.getItem(this.isFirstTimeKey) === null;
   }

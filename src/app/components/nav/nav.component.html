@@ -6,8 +6,8 @@
   <div class="example-menu" cdkMenu>
     <button *ngIf="!userIsLoggedIn" routerLink="/login" class="example-menu-item" cdkMenuItem>Login</button>
     <button *ngIf="!userIsLoggedIn" routerLink="register" class="example-menu-item" cdkMenuItem>Register</button>
-    <button *ngIf= "userIsLoggedIn" (click)="logout()" class="example-menu-item" cdkMenuItem>Logout</button>
+    <button *ngIf="userIsLoggedIn" (click)="logout()" class="example-menu-item" cdkMenuItem>Logout</button>
     <button *ngIf="userIsLoggedIn" routerLink="/jira-board" class="example-menu-item" cdkMenuItem>Agile Board</button>
-    <button *ngIf= "userIsLoggedIn" (click)="clearBoard()" class="example-menu-item" cdkMenuItem>Clear Board</button>
+    <button *ngIf="userIsLoggedIn" (click)="clearBoard()" class="example-menu-item" cdkMenuItem>Clear Board</button>
   </div>
 </ng-template>

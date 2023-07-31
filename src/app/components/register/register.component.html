@@ -1,44 +1,46 @@
 <div class="megadiv">
-<div class="register-container">
-  <div class="register-content">
-    <h1 class="register-h1">REGISTER</h1>
-    <mat-card>
+  <div class="register-container">
+    <div class="register-content">
+      <h1 class="register-h1">REGISTER</h1>
+      <mat-card>
 
-      <form [formGroup]="form"
-            (ngSubmit)="register()">
-        <mat-form-field>
-          <mat-icon matPrefix>email</mat-icon>
-          <input autofocus type="email" matInput placeholder="Email *" formControlName="email">
-          <mat-error class="error" *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['required']">
-            Email is required!
-          </mat-error>
-        </mat-form-field>
-
-
-        <mat-form-field>
-          <mat-icon matPrefix>person_outline</mat-icon>
-          <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
-          <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
-            Username is required!
-          </mat-error>
-        </mat-form-field>
+        <form [formGroup]="form" (ngSubmit)="register()">
+          <mat-form-field>
+            <mat-icon matPrefix>email</mat-icon>
+            <input autofocus type="email" matInput placeholder="Email *" formControlName="email">
+            <mat-error class="error"
+              *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['required']">
+              Email is required!
+            </mat-error>
+          </mat-form-field>
 
 
-        <mat-form-field>
-          <mat-icon matPrefix>lock_outline</mat-icon>
-          <input type="password" #input autocomplete="false" matInput placeholder="Password *" formControlName="password" minlength="8">
-          <mat-hint >Choose a password of at least eight characters {{input.value.length}}/8</mat-hint>
-          <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
-            Password is required!
-          </mat-error>        
-        </mat-form-field>
+          <mat-form-field>
+            <mat-icon matPrefix>person_outline</mat-icon>
+            <input autofocus type="text" matInput placeholder="Username *" formControlName="username">
+            <mat-error *ngIf="form.controls['username'].touched && form.controls['username'].errors?.['required']">
+              Username is required!
+            </mat-error>
+          </mat-form-field>
 
-        <hr>
-        <div class="socialMediaFlex">
-          <button style="width:50%" [disabled]="form.invalid" type="submit" mat-raised-button color="accent">Register</button>
-        </div> 
-      </form>
-    </mat-card>
+
+          <mat-form-field>
+            <mat-icon matPrefix>lock_outline</mat-icon>
+            <input type="password" #input autocomplete="false" matInput placeholder="Password *"
+              formControlName="password" minlength="8">
+            <mat-hint>Choose a password of at least eight characters {{input.value.length}}/8</mat-hint>
+            <mat-error *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']">
+              Password is required!
+            </mat-error>
+          </mat-form-field>
+
+          <hr>
+          <div class="socialMediaFlex">
+            <button style="width:50%" [disabled]="form.invalid" type="submit" mat-raised-button
+              color="accent">Register</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
   </div>
-</div>
 </div>

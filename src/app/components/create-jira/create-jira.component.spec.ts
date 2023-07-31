@@ -8,9 +8,9 @@ describe('CreateJiraComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateJiraComponent ]
+      declarations: [CreateJiraComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CreateJiraComponent);
     component = fixture.componentInstance;
