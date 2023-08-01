@@ -1,8 +1,6 @@
 <nav-component></nav-component>
 
 <button class="create-task-btn" mat-raised-button (click)="openDialog()">Create Task</button>
-
-
 <div class="board">
 
   <div class="board-bar">
@@ -25,17 +23,16 @@
                 tabindex="0" [attr.aria-expanded]="accordionItem.expanded"
                 [attr.aria-controls]="'accordion-body-' + item">
                 <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-                  {{ item.title }}
+                 ({{todo.tasks.indexOf(item)+1}}) {{ item.title }}
                 </div>
                 <div class="example-accordion-item-body" role="region"
                   [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + item"
                   [attr.aria-labelledby]="'accordion-header-' + item">
                   <mat-card class="example-card">
-                    <mat-card-header>
-                      <mat-card-subtitle>{{item.assignee}}</mat-card-subtitle>
+                    <mat-card-header >
+                      <mat-card-subtitle>Assignee:<body style="color:black">{{item.assignee}}</body></mat-card-subtitle>
                     </mat-card-header>
-                    <mat-card-content>
-                      {{item.description}}
+                    <mat-card-content><body style="color: grey;">Description:</body>{{item.description}}
                     </mat-card-content>
                   </mat-card>
                 </div>
@@ -57,17 +54,16 @@
                 tabindex="0" [attr.aria-expanded]="accordionItem.expanded"
                 [attr.aria-controls]="'accordion-body-' + item">
                 <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-                  {{ item.title }}
+                  ({{inprogress.tasks.indexOf(item)+1}}) {{ item.title }}
                 </div>
                 <div class="example-accordion-item-body" role="region"
                   [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + item"
                   [attr.aria-labelledby]="'accordion-header-' + item">
                   <mat-card class="example-card">
-                    <mat-card-header>
-                      <mat-card-subtitle>{{item.assignee}}</mat-card-subtitle>
+                    <mat-card-header >
+                      <mat-card-subtitle>Assignee:<body style="color:black">{{item.assignee}}</body></mat-card-subtitle>
                     </mat-card-header>
-                    <mat-card-content>
-                      {{item.description}}
+                    <mat-card-content><body style="color: grey;">Description:</body>{{item.description}}
                     </mat-card-content>
                   </mat-card>
                 </div>
@@ -89,17 +85,16 @@
                 tabindex="0" [attr.aria-expanded]="accordionItem.expanded"
                 [attr.aria-controls]="'accordion-body-' + item">
                 <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-                  <s>{{ item.title }}</s>
+                  <s>({{done.tasks.indexOf(item)+1}}) {{ item.title }}</s>
                 </div>
                 <div class="example-accordion-item-body" role="region"
                   [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + item"
                   [attr.aria-labelledby]="'accordion-header-' + item">
                   <mat-card class="example-card">
-                    <mat-card-header>
-                      <mat-card-subtitle><s>{{item.assignee}}</s></mat-card-subtitle>
+                    <mat-card-header >
+                      <mat-card-subtitle>Assignee:<body style="color:black">{{item.assignee}}</body></mat-card-subtitle>
                     </mat-card-header>
-                    <mat-card-content>
-                      <s>{{item.description}}</s>
+                    <mat-card-content><body style="color: grey;">Description:</body>{{item.description}}
                     </mat-card-content>
                   </mat-card>
                 </div>

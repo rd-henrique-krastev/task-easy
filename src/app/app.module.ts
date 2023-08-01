@@ -22,6 +22,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { CreateJiraComponent } from './components/create-jira/create-jira.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CreateJiraComponent } from './components/create-jira/create-jira.compon
     RegisterComponent,
     DashboardComponent,
     CreateJiraComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

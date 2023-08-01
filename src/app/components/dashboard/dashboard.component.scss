@@ -73,6 +73,7 @@
 
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
     0 3px 14px 2px rgba(0, 0, 0, 0.05);
+    flex-direction: column;
 }
 
 .cdk-drag-preview {
@@ -97,4 +98,8 @@
 
 .create-task-btn {
   margin-left: 8rem;
+}
+
+.example-card{
+  word-wrap:break-word;
 }
